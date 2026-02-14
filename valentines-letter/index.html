@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For My Valentine 🤎</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden; /* page itself doesn't scroll */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #c8ad90, #e6d3b1);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Floating hearts */
+        .heart-float {
+            position: absolute;
+            bottom: -50px;
+            font-size: 22px;
+            color: rgba(120, 72, 32, 0.6);
+            animation: floatUp linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-120vh); opacity: 0; }
+        }
+
+        /* Floating pictures */
+        @keyframes floatPic {
+            from { transform: translateY(0) scale(0.9); opacity: 1; }
+            to { transform: translateY(-120vh) scale(1.1); opacity: 0; }
+        }
+
+        /* Envelope */
+        .envelope {
+            background: linear-gradient(145deg, #8b5e3c, #6f4527);
+            width: 320px;
+            height: 200px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #f5e6d3;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+            z-index: 2;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        /* Letter */
+        .letter {
+            display: none;
+            background: #f9f3eb;
+            width: 380px;
+            max-height: 85vh;       /* allows scroll */
+            padding: 30px 28px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            animation: pop 0.8s ease;
+            z-index: 2;
+            border: 1px solid #d6c1a5;
+            overflow-y: auto;       /* vertical scroll */
+        }
+
+        @keyframes pop {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #7a4a24;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            font-size: 13px;
+            color: #9c7a5a;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            color: #5a3b22;
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        img.main-pic {
+            width: 100%;
+            max-width: 230px;
+            border-radius: 14px;
+            margin: 18px 0;
+            box-shadow: 0 10px 18px rgba(0,0,0,0.25);
+            border: 4px solid #e2d0b8;
+        }
+
+        .signature {
+            margin-top: 20px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #7a4a24;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 18px;
+            font-weight: 500;
+            color: #8b5e3c;
+            animation: fadeIn 2s ease;
+            font-family: 'Playfair Display', serif;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        button {
+            margin-top: 18px;
+            padding: 10px 22px;
+            border: none;
+            background: #8b5e3c;
+            color: #f9f3eb;
+            border-radius: 25px;
+            font-size: 14px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        button:hover {
+            background: #6f4527;
+        }
+
+        /* Optional scroll bar style */
+        .letter::-webkit-scrollbar {
+            width: 6px;
+        }
+        .letter::-webkit-scrollbar-thumb {
+            background: #b08968;
+            border-radius: 10px;
+        }
+        .letter::-webkit-scrollbar-track {
+            background: #f1e3d3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="romantic-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Envelope -->
+    <div class="envelope" onclick="openLetter()">
+         happyvalentines mah love 🤎
+    </div>
+
+    <!-- Letter -->
+    <div class="letter" id="letter">
+        <h1>To my Safest place</h1>
+        <div class="date">happy valentines day</div>
+
+        <img src="mylove.jpg" alt="My Valentine" class="main-pic">
+
+        <p>
+            My Langggaa!! <br><br>
+            You are my favorite person, my safest place,
+            and the most beautiful part of my life.
+            Every moment with you feels like a blessing.
+        </p>
+
+        <p>
+            Langga, I really wanna spend time with you till my last breath,
+            every nights nga indi taka tupad, it feels like dow ka lonely sakon.
+            You always filled my heart with happiness and love.
+        </p>
+
+        <p>
+             I'm so sorry langga if sometimes may mga inaway ta, basta 
+            always remember that I will always love you no matter what.
+        </p>
+
+        <div class="signature">
+            Forever yours,<br>
+            JUmongheee🤎
+        </div>
+
+        <div class="hidden-message" id="secret">
+            No matter where life takes us, I promise to choose you always langga
+            today, tomorrow, and forever.
+        </div>
+
+        <button onclick="startFloatingPictures()">
+            🤎 SOURPRICE 🤎
+        </button>
+    </div>
+
+    <script>
+        function openLetter() {
+            document.querySelector('.envelope').style.display = 'none';
+            document.getElementById('letter').style.display = 'block';
+
+            setTimeout(() => {
+                document.getElementById('secret').style.display = 'block';
+            }, 6000);
+        }
+
+        // Floating hearts
+        setInterval(() => {
+            const heart = document.createElement("div");
+            heart.className = "heart-float";
+            heart.innerHTML = "🤎";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 7000);
+        }, 350);
+
+        // Floating pictures
+        function startFloatingPictures() {
+            setInterval(() => {
+                const img = document.createElement("img");
+                img.src = "mylove.jpg";
+                img.style.position = "absolute";
+                img.style.width = "80px";
+                img.style.borderRadius = "14px";
+                img.style.left = Math.random() * 100 + "vw";
+                img.style.bottom = "-100px";
+                img.style.animation = "floatPic 6s linear forwards";
+                img.style.pointerEvents = "none";
+                document.body.appendChild(img);
+
+                setTimeout(() => img.remove(), 6000);
+            }, 500);
+
+            
+        }
+        function startFloatingPictures() {
+    const images = ["ha.jpg", "wa.jpg", "we.jpg", "wr.jpg"]; // add more if you want
+
+    setInterval(() => {
+        const img = document.createElement("img");
+        // Pick a random image from the array
+        img.src = images[Math.floor(Math.random() * images.length)];
+        img.style.position = "absolute";
+        img.style.width = "80px";
+        img.style.borderRadius = "14px";
+        img.style.left = Math.random() * 100 + "vw";
+        img.style.bottom = "-100px";
+        img.style.animation = "floatPic 6s linear forwards";
+        img.style.pointerEvents = "none";
+        document.body.appendChild(img);
+
+        // Remove after animation
+        setTimeout(() => img.remove(), 6000);
+    }, 500);
+}
+
+    </script>
+
+</body>
+</html>
